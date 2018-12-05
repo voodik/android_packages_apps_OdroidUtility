@@ -60,9 +60,6 @@ public class UpdaterFragment extends Fragment {
         return frag;
     }
 
-
-    private static CircleProgressDialog dgextract;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -71,12 +68,36 @@ public class UpdaterFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_updater, container, false);
     }
 
+    private static void unzip() {
+
+        Log.v("MNG Utility", "mzipFile " + mzipFile);
+        Log.v("MNG Utility", "mmdsumFile " + mmdsumFile);
+
+        new MyUnzip(context, Uri.parse(mzipFile), Uri.parse(mmdsumFile), mUnzipLocation) {
+
+            @Override
+            protected void onPostExecute(Long result) {
+
+                super.onPostExecute(result);
+                // Do something with result here
+                anim1.start();
+                ((MainActivity) context).animatefab();
+            }
+        }.execute();
+
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         boolean mhaszipfile = false;
         boolean mhassumfile = false;
         final ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-        final ImageView iconPaste = (ImageView) view.findViewById(R.id.iconPaste);
+        final ImageView iconPaste = view.findViewById(R.id.iconPaste);
         final Button btn = view.findViewById(R.id.button);
         final EditText edurl = view.findViewById(R.id.editText_url);
         final TextView changelog = view.findViewById(R.id.TVchangelog);
@@ -248,39 +269,11 @@ public class UpdaterFragment extends Fragment {
         anim.setDuration(700);
 
         // Start animating the image
-        final ImageView iconUpdate = (ImageView) view.findViewById(R.id.iconUpdate);
+        final ImageView iconUpdate = view.findViewById(R.id.iconUpdate);
         iconUpdate.startAnimation(anim);
         // Later.. stop the animation
         iconUpdate.setAnimation(null);
 
-
-    }
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    private static void unzip() {
-//        String zipFile = Environment.getExternalStorageDirectory() + "/update.zip"; //your zip file location
- // unzip location
-/*        dgextract = CircleProgressDialog.newInstance("Please Wait... Extracting zip file... ");
-        dgextract.setCancelable(false);
-        dgextract.show(getFragmentManager(), "extractdialog");
-        new UnZipTask().execute(mzipFile, mUnzipLocation);*/
-        Log.v("MNG Utility", "mzipFile " + mzipFile);
-        Log.v("MNG Utility", "mmdsumFile " + mmdsumFile);
-
-        new MyUnzip(context, Uri.parse(mzipFile), Uri.parse(mmdsumFile), mUnzipLocation) {
-
-            @Override
-            protected void onPostExecute( Long result ) {
-
-                super.onPostExecute( result );
-                // Do something with result here
-                anim1.start();
-                ((MainActivity)context).animatefab();
-            }
-        }.execute();
 
     }
 
