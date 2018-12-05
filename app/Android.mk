@@ -20,7 +20,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     common-codec
 
   LOCAL_RESOURCE_DIR := \
-      $(LOCAL_PATH)/res \
+      $(LOCAL_PATH)/src/main/res \
       frameworks/support/v7/preference/res \
       frameworks/support/design/res
 
