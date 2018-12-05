@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="changelog">20181025 Alpha-v0.5\n
+Fixed Ethernet static ip issues\n
+Fixed USB Audio support\n
+Fixed Bluetooth HID support\n
+Fixed Gapps logspam\n
+Fixed Selinux denials(now you can set it to enforcing mode)\n
+Added A2DP AptX AptX-HD encoders\n
+Added Enable/Disable option for OGST TFT display to Odroid Utility.\n
+Added tvheadend, mplayer, ffmpeg\n
+Removed Safe headphone volume warning</string>
+    <string name="editText_url_hint">https://oph.mdrjr.net/voodik/[product]/update.zip</string>
+    <string name="download_from">Download URL:</string>
+    <string name="update_options_title">Select update options</string>
+</resources>

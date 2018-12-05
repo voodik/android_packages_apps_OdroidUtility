@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_category_display">Display Settings</string>
+    <string-array name="resolution_array">
+        <item>480x320p60hz</item>
+        <item>480p60hz</item>
+        <item>480p59.94hz</item>
+        <item>576p50hz</item>
+        <item>480x800p60hz</item>
+        <item>800x480p60hz (ODROID-VU5/7)</item>
+        <item>848x480p60hz</item>
+        <item>600p60hz</item>
+        <item>1024x600p60hz (ODROID-VU7 Plus)</item>
+        <item>768p60hz (ODROID-VU8)</item>
+        <item>720p50hz</item>
+        <item>720p60hz</item>
+        <item>1280x768p60hz</item>
+        <item>1152x864p75hz</item>
+        <item>800p59hz</item>
+        <item>960p60hz</item>
+        <item>900p60hz</item>
+        <item>1024p60hz</item>
+        <item>1400x1050p60hz</item>
+        <item>1360x768p60hz</item>
+        <item>1600x900p60hz</item>
+        <item>1600x1200p60hz</item>
+        <item>1920x800p60hz</item>
+        <item>1792x1344p60hz</item>
+        <item>1080i50hz</item>
+        <item>1080i60hz</item>
+        <item>1080p23.976hz</item>
+        <item>1080p24hz</item>
+        <item>1080p30hz</item>
+        <item>1080p50hz</item>
+        <item>1080p60hz</item>
+        <item>1920x1200p60hz</item>
+        <item>1200x1920p60hz</item>
+    </string-array>
+
+    <string-array name="resolution_values_array">
+        <item>480x320p60hz</item>
+        <item>480p60hz</item>
+        <item>480p59.94hz</item>
+        <item>576p50hz</item>
+        <item>480x800p60hz</item>
+        <item>800x480p60hz</item>
+        <item>848x480p60hz</item>
+        <item>600p60hz</item>
+        <item>1024x600p60hz</item>
+        <item>768p60hz</item>
+        <item>720p50hz</item>
+        <item>720p60hz</item>
+        <item>1280x768p60hz</item>
+        <item>1152x864p75hz</item>
+        <item>800p59hz</item>
+        <item>960p60hz</item>
+        <item>900p60hz</item>
+        <item>1024p60hz</item>
+        <item>1400x1050p60hz</item>
+        <item>1360x768p60hz</item>
+        <item>1600x900p60hz</item>
+        <item>1600x1200p60hz</item>
+        <item>1920x800p60hz</item>
+        <item>1792x1344p60hz</item>
+        <item>1080i50hz</item>
+        <item>1080i60hz</item>
+        <item>1080p23.976hz</item>
+        <item>1080p24hz</item>
+        <item>1080p30hz</item>
+        <item>1080p50hz</item>
+        <item>1080p60hz</item>
+        <item>1920x1200p60hz</item>
+        <item>1200x1920p60hz</item>
+    </string-array>
+    <string name="pref_resolution">pref_resolution</string>
+    <string name="pref_resolution_title">Display Resolution</string>
+    <string name="pref_resolution_value_default">720p60hz</string>
+
+    <string-array name="rotation_array">
+        <item>0 degrees</item>
+        <item>90 degrees</item>
+        <item>180 degrees</item>
+        <item>270 degrees</item>
+    </string-array>
+    <string-array name="rotation_array_values">
+        <item>0</item>
+        <item>90</item>
+        <item>180</item>
+        <item>270</item>
+    </string-array>
+    <string name="pref_rotation">pref_rotation</string>
+    <string name="pref_rotation_title">Display Rotation</string>
+    <string name="pref_rotation_value_default">0</string>
+    <string name="pref_edid">pref_edid</string>
+    <string name="pref_hpd">pref_hpd</string>
+    <string name="pref_dp">pref_dp</string>
+    <string name="pref_category_touch">Touchscreen Settings</string>
+    <string name="pref_vu7">pref_vu7</string>
+    <string name="pref_touch_invert_x">pref_touch_invert_x</string>
+    <string name="pref_touch_invert_y">pref_touch_invert_y</string>
+
+    <string name="pref_test_mt_vid">pref_test_mt_vid</string>
+    <string name="touch_test_vid">Test MT VID</string>
+    <string name="summary_touch_test_vid">USB VID to test Multitouch device</string>
+    <string name="dialog_touch_test_vid">Enter VID in HEX format</string>
+
+    <string name="pref_test_mt_pid">pref_test_mt_pid</string>
+    <string name="touch_test_pid">Test MT PID</string>
+    <string name="summary_touch_test_pid">USB PID to test Multitouch device</string>
+    <string name="dialog_touch_test_pid">Enter PID in HEX format</string>
+</resources>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="50dp">
+
+    <TextView
+        style="@style/wifi_item_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/download_from" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editText_url"
+            style="@style/wifi_item_edit_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/editText_url_hint"
+            android:inputType="textUri"
+            android:singleLine="true"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/iconPaste"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            app:srcCompat="@drawable/ic_content_paste_black_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="Download"
+             />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="download"
+            android:visibility="invisible" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp">
+
+                <TextView
+                    android:id="@+id/cur_vers"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="#eeeeee"
+                    android:text="Installed version" />
+
+                <TextView
+                    android:id="@+id/cur_vers_value"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="#eeeeee"
+                    android:text="16.11.2018" />
+
+                <Space
+                    android:layout_width="24dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp">
+
+                <TextView
+                    android:id="@+id/new_vers"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="#eeeeee"
+                    android:text="Latest version"
+                    android:textColor="@color/material_red_a200" />
+
+                <TextView
+                    android:id="@+id/new_vers_value"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="#eeeeee"
+                    android:text="26.11.2018"
+                    android:textColor="@color/material_red_a200" />
+
+                <ImageView
+                    android:id="@+id/iconUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/ic_autorenew_black_24dp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eeeeee"
+                android:text="Changelog" />
+
+            <TextView
+                android:id="@+id/TVchangelog"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+
+                android:background="#eeeeee"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="top"
+                android:inputType="none"
+                android:overScrollMode="always"
+                android:padding="6dp"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                android:text="@string/changelog" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/wifi_item_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update_options_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingTop="15dp">
+
+        <LinearLayout
+            android:id="@+id/options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:orientation="horizontal" >
+        <CheckBox
+            android:id="@+id/cBoxFormatUdata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#eeeeee"
+            android:paddingEnd="25dp"
+            android:text="Format userdata" />
+
+        <CheckBox
+            android:id="@+id/cBoxFormatFat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#eeeeee"
+            android:paddingEnd="25dp"
+            android:text="Format FAT" />
+
+        <CheckBox
+            android:id="@+id/cBoxFormatEnv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#eeeeee"
+            android:paddingEnd="25dp"
+            android:text="Clear uboot env" />
+
+        <CheckBox
+            android:id="@+id/cBoxUpUboot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#eeeeee"
+            android:paddingEnd="25dp"
+            android:text="Update uboot" />
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

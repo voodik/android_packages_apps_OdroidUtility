@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_category_cpu">CPU and DRAM Settings</string>
+    <string name="pref_cpu_gov_title">CPU Governor</string>
+    <string name="pref_cpu_gov">pref_cpu_gov</string>
+    <string name="pref_cpu_gov_value_default">ondemand</string>
+    <string name="pref_dram_gov">pref_dram_gov</string>
+    <string name="pref_dram_gov_title">DRAM Governor</string>
+    <string name="pref_dram_freq">pref_dram_freq</string>
+    <string name="pref_dram_freq_title">DRAM Max Frequency</string>
+    <string-array name="cpu_gov_array">
+        <!--
+        <item >adaptive</item>
+        <item >interactive</item>
+        <item >conservative</item>
+        <item >userspace</item>
+        <item >powersave</item>
+         -->
+        <item >ondemand</item>
+        <item >performance</item>
+    </string-array>
+    <string-array name="cpu_gov_array_values">
+        <!--
+        <item >adaptive</item>
+        <item >interactive</item>
+        <item >conservative</item>
+        <item >userspace</item>
+        <item >powersave</item>
+         -->
+        <item >ondemand</item>
+        <item >performance</item>
+    </string-array>
+</resources>

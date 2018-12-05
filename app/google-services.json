@@ -1,0 +1,43 @@
+{
+  "project_info": {
+    "project_number": "814216976387",
+    "firebase_url": "https://odroid-utility.firebaseio.com",
+    "project_id": "odroid-utility",
+    "storage_bucket": "odroid-utility.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814216976387:android:3c752d22b532b8f1",
+        "android_client_info": {
+          "package_name": "com.hardkernel.voodik.odroidutility"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814216976387-mm8s5t214nnuog2djmg12gkf8rt0lv3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0XWRE18wSN7lGbjmpZDIFLssJnV-y8CU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      },
+      "admob_app_id": "ca-app-pub-7059366109369747~1811581482"
+    }
+  ],
+  "configuration_version": "1"
+}

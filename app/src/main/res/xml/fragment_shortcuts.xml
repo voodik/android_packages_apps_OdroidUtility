@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <PreferenceCategory android:title="@string/pref_category_shortcuts">
+        <Preference android:key="@string/pref_hk_1"
+            android:title="@string/pref_hk_1_title" />
+        <Preference android:key="@string/pref_hk_2"
+            android:title="@string/pref_hk_2_title" />
+        <Preference android:key="@string/pref_hk_3"
+            android:title="@string/pref_hk_3_title" />
+        <Preference android:key="@string/pref_hk_4"
+            android:title="@string/pref_hk_4_title" />
+    </PreferenceCategory>
+</PreferenceScreen>

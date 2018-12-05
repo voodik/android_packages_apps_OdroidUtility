@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_display"
+            android:icon="@drawable/ic_tv_black_24dp"
+            android:title="@string/menu_display_title" />
+        <item
+            android:id="@+id/nav_cpu"
+            android:icon="@drawable/ic_memory_black_24dp"
+            android:title="@string/menu_cpu_dram_title" />
+        <item
+            android:id="@+id/nav_ethernet"
+            android:icon="@drawable/ic_settings_ethernet_black_24dp"
+            android:title="@string/menu_ethernet_title" />
+        <item
+            android:id="@+id/nav_fan"
+            android:icon="@drawable/ic_toys_black_24dp"
+            android:title="@string/menu_fan_title" />
+        <item
+            android:id="@+id/nav_shortcuts"
+            android:icon="@drawable/ic_keyboard_black_24dp"
+            android:title="@string/menu_shortcuts_title" />
+        <item
+            android:id="@+id/nav_misc"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/menu_misc_title" />
+    </group>
+
+    <item android:title="System">
+        <menu>
+            <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_update"
+                android:icon="@drawable/ic_system_update_alt_black_24dp"
+                android:title="@string/menu_updater_title" />
+            <item
+                android:id="@+id/nav_bootini"
+                android:icon="@drawable/ic_developer_board_black_24dp"
+                android:title="@string/menu_bootini_title" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_live_help_black_24dp"
+                android:title="@string/menu_about_title" />
+            </group>
+        </menu>
+    </item>
+
+
+</menu>

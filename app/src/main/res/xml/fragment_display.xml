@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <PreferenceCategory android:title="@string/pref_category_display">
+        <ListPreference
+            android:defaultValue="@string/pref_resolution_value_default"
+            android:entries="@array/resolution_array"
+            android:entryValues="@array/resolution_values_array"
+            android:key="@string/pref_resolution"
+            android:summary="%s"
+            android:title="@string/pref_resolution_title" />
+        <ListPreference
+            android:defaultValue="@string/pref_rotation_value_default"
+            android:entries="@array/rotation_array"
+            android:entryValues="@array/rotation_array_values"
+            android:key="@string/pref_rotation"
+            android:summary="%s"
+            android:title="@string/pref_rotation_title" />
+        <SwitchPreference
+            android:key="@string/pref_edid"
+            android:summary="Enable HDMI EDID"
+            android:title="EDID" />
+        <SwitchPreference
+            android:key="@string/pref_hpd"
+            android:summary="Enable HDMI HPD"
+            android:title="HPD" />
+        <SwitchPreference
+            android:key="@string/pref_dp"
+            android:summary="Disable DisplayPort"
+            android:title="DP" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_touch">
+        <SwitchPreference
+            android:key="@string/pref_vu7"
+            android:summary="Disable VU7 driver"
+            android:title="VU7" />
+        <SwitchPreference
+            android:key="@string/pref_touch_invert_x"
+            android:summary="Invert touch X axis"
+            android:title="Invert X" />
+        <SwitchPreference
+            android:key="@string/pref_touch_invert_y"
+            android:summary="Invert touch Y axis"
+            android:title="Invert Y" />
+        <com.hardkernel.voodik.odroidutility.CustomEditTextPreference
+            android:id="@+id/edt_mt_vid"
+            android:key="@string/pref_test_mt_vid"
+            android:title="@string/touch_test_vid"
+            android:summary="@string/summary_touch_test_vid"
+            android:dialogTitle="@string/dialog_touch_test_vid"
+            android:digits="0123456789ABCDEF"
+            android:inputType="textCapCharacters"
+            android:defaultValue="0000" />
+        <com.hardkernel.voodik.odroidutility.CustomEditTextPreference
+            android:id="@+id/edt_mt_pid"
+            android:key="@string/pref_test_mt_pid"
+            android:title="@string/touch_test_pid"
+            android:summary="@string/summary_touch_test_pid"
+            android:dialogTitle="@string/dialog_touch_test_pid"
+            android:digits="0123456789ABCDEF"
+            android:inputType="textCapCharacters"
+            android:defaultValue="0000" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Odroid Utility</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Odroid Utility</string>
+    <string name="nav_header_subtitle">Device Configuration</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_display_title">Display</string>
+    <string name="menu_cpu_dram_title">CPU and Dram</string>
+    <string name="menu_ethernet_title">Ethernet</string>
+    <string name="menu_fan_title">Fan</string>
+    <string name="menu_shortcuts_title">Shortcuts</string>
+    <string name="menu_misc_title">Misc</string>
+    <string name="menu_updater_title">Updater</string>
+    <string name="menu_bootini_title">Bootloader</string>
+    <string name="menu_about_title">About</string>
+
+
+
+</resources>

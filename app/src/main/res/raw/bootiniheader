@@ -1,0 +1,129 @@
+ODROIDXU-UBOOT-CONFIG
+
+# setenv fb_x_res "480"
+# setenv fb_y_res "320"
+# setenv hdmi_phy_res "480x320p60hz"
+
+# setenv fb_x_res "640"
+# setenv fb_y_res "480"
+# setenv hdmi_phy_res "480p60hz"
+
+# setenv fb_x_res "720"
+# setenv fb_y_res "480"
+# setenv hdmi_phy_res "480p59.94"
+
+# setenv fb_x_res "720"
+# setenv fb_y_res "576"
+# setenv hdmi_phy_res "576p50hz"
+
+# setenv fb_x_res "480"
+# setenv fb_y_res "800"
+# setenv hdmi_phy_res "480x800p60hz"
+
+# setenv fb_x_res "800"
+# setenv fb_y_res "480"
+# setenv hdmi_phy_res "800x480p60hz"
+
+# setenv fb_x_res "848"
+# setenv fb_y_res "480"
+# setenv hdmi_phy_res "848x480p60hz"
+
+# setenv fb_x_res "800"
+# setenv fb_y_res "600"
+# setenv hdmi_phy_res "600p60hz"
+
+# setenv fb_x_res "1024"
+# setenv fb_y_res "600"
+# setenv hdmi_phy_res "1024x600p60hz"
+
+# setenv fb_x_res "1280"
+# setenv fb_y_res "720"
+# setenv hdmi_phy_res "720p50hz"
+
+# setenv fb_x_res "1280"
+# setenv fb_y_res "720"
+# setenv hdmi_phy_res "720p60hz"
+
+# setenv fb_x_res "1280"
+# setenv fb_y_res "768"
+# setenv hdmi_phy_res "1280x768p60hz"
+
+# setenv fb_x_res "1152"
+# setenv fb_y_res "864"
+# setenv hdmi_phy_res "1152x864p75hz"
+
+# setenv fb_x_res "1280"
+# setenv fb_y_res "800"
+# setenv hdmi_phy_res "800p59hz"
+
+# setenv fb_x_res "1280"
+# setenv fb_y_res "960"
+# setenv hdmi_phy_res "960p60hz"
+
+# setenv fb_x_res "1440"
+# setenv fb_y_res "900"
+# setenv hdmi_phy_res "900p60hz"
+
+# setenv fb_x_res "1280"
+# setenv fb_y_res "1024"
+# setenv hdmi_phy_res "1024p60hz"
+
+# setenv fb_x_res "1400"
+# setenv fb_y_res "1050"
+# setenv hdmi_phy_res "1400x1050p60hz"
+
+# setenv fb_x_res "1360"
+# setenv fb_y_res "768"
+# setenv hdmi_phy_res "1360x768p60hz"
+
+# setenv fb_x_res "1600"
+# setenv fb_y_res "900"
+# setenv hdmi_phy_res "1600x900p60hz"
+
+# setenv fb_x_res "1600"
+# setenv fb_y_res "1200"
+# setenv hdmi_phy_res "1600x1200p60hz"
+
+# setenv fb_x_res "1920"
+# setenv fb_y_res "800"
+# setenv hdmi_phy_res "1020x800p60hz"
+
+# setenv fb_x_res "1792"
+# setenv fb_y_res "1344"
+# setenv hdmi_phy_res "1792x1344p60hz"
+
+# setenv fb_x_res "1920"
+# setenv fb_y_res "1080"
+# setenv hdmi_phy_res "1080i50hz"
+
+# setenv fb_x_res "1920"
+# setenv fb_y_res "1080"
+# setenv hdmi_phy_res "1080i60hz"
+
+# setenv fb_x_res "1920"
+# setenv fb_y_res "1080"
+# setenv hdmi_phy_res "1080p30hz"
+
+# setenv fb_x_res "1920"
+# setenv fb_y_res "1080"
+# setenv hdmi_phy_res "1080p50hz"
+
+# setenv fb_x_res "1920"
+# setenv fb_y_res "1080"
+# setenv hdmi_phy_res "1080p23.976hz"
+
+# setenv fb_x_res "1920"
+# setenv fb_y_res "1080"
+# setenv hdmi_phy_res "1080p24hz"
+
+# setenv fb_x_res "1920"
+# setenv fb_y_res "1080"
+# setenv hdmi_phy_res "1080p60hz"
+
+# setenv fb_x_res "1920"
+# setenv fb_y_res "1200"
+# setenv hdmi_phy_res "1920x1200p60hz"
+
+# setenv fb_x_res "1200"
+# setenv fb_y_res "1920"
+# setenv hdmi_phy_res "1200x1920p60hz"

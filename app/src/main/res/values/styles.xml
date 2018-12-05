@@ -1,0 +1,148 @@
+<resources>
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <!--<item name="colorPrimary">@color/material_gray_900</item>-->
+        <!--<item name="colorPrimaryDark">@android:color/black</item>-->
+        <!--<item name="colorAccent">@android:color/black</item>-->
+        <item name="colorButtonNormal">@color/material_green_500</item>
+        <item name="android:textColor">@color/material_gray_900</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/drawer_list_selector</item>
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="colorPrimary">@color/material_green_500</item>
+        <item name="colorPrimaryDark">@color/material_green_700</item>
+        <item name="colorAccent">@color/material_green_500</item>
+        <item name="buttonStyle">@style/GreenButton</item>
+        <item name="dialogTheme">@style/AppTheme.Dialog.Green</item>
+        <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Green</item>
+        <!-- Light.DarkActionBar specific -->
+    </style>
+
+    <!-- ToolBar -->
+    <style name="ThemeOverlay.AppCompat.navTheme">
+
+        <!-- Color of text and icon when SELECTED
+        <item name="colorPrimary">@android:color/white</item> -->
+
+        <!-- Background color when SELECTED -->
+        <item name="colorControlHighlight">@android:color/darker_gray</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!--
+        <item name="android:textColorPrimary">TITLE_COLOR_GOES_HERE</item>
+        <item name="android:textColorSecondary">SUBTITLE_COLOR_GOES_HERE</item>
+        -->
+        <!--<item name="android:colorBackground">@color/material_gray_850</item>-->
+        <!--<item name="android:textColorPrimary">@color/text_default_material_dark_primary</item>-->
+        <!--<item name="android:textColor">@color/text_default_material_dark_primary</item>-->
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <!--<item name="android:textColor">@color/text_default_material_dark_primary</item>-->
+        <!--<item name="android:colorBackground">@color/material_gray_850</item>-->
+        <!-- <item name="colorControlActivated">@android:color/darker_gray</item> -->
+        <!--<item name="colorControlHighlight">@android:color/darker_gray</item>-->
+    </style>
+
+    <style name="GreenButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="colorButtonNormal">@color/material_green_600</item>
+    </style>
+
+    <!-- Default Dialog Theme -->
+    <style name="AppTheme.Dialog" parent="Theme.AppCompat.Light.Dialog">
+    </style>
+
+    <!-- Green Dialog Theme -->
+    <style name="AppTheme.Dialog.Green">
+        <item name="colorPrimary">@color/material_green_500</item>
+        <item name="colorPrimaryDark">@color/material_green_700</item>
+        <item name="colorAccent">@color/material_green_a700</item>
+    </style>
+
+    <!-- Default Alert Dialog Theme -->
+    <style name="AppTheme.Dialog.Alert" parent="Theme.AppCompat.Light.Dialog.Alert">
+    </style>
+
+    <!-- Green Alert Dialog Theme -->
+    <style name="AppTheme.Dialog.Alert.Green">
+        <item name="colorPrimary">@color/material_green_500</item>
+        <item name="colorPrimaryDark">@color/material_green_700</item>
+        <item name="colorAccent">@color/material_green_a700</item>
+    </style>
+    <!-- Base application theme. -->
+ <!--   <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        &lt;!&ndash; Customize your theme here. &ndash;&gt;
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+-->
+    <style name="wifi_item">
+        <item name="android:layout_marginTop">8dip</item>
+        <item name="android:layout_marginStart">8dip</item>
+        <item name="android:layout_marginEnd">8dip</item>
+        <item name="android:paddingStart">8dip</item>
+        <item name="android:paddingEnd">8dip</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="wifi_item_label">
+        <item name="android:paddingStart">8dip</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Body1</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="wifi_item_warning">
+        <item name="android:paddingStart">8dip</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Body1</item>
+        <item name="android:textColor">?android:attr/colorError</item>
+    </style>
+
+    <style name="wifi_item_content">
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Subhead</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="wifi_item_spinner" parent="wifi_item_content">
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="wifi_item_edit_content">
+        <item name="android:paddingStart">4dip</item>
+        <item name="android:layout_marginStart">4dip</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="wifi_section">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="CustomDialog" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">false</item>
+    </style>
+
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="select_application">Select application</string>
+    <!-- [CHAR LIMIT=25] Text shown when there are no applications to display. -->
+    <string name="no_applications">No apps.</string>
+    <string name="pref_hk_1">pref_hk_1</string>
+    <string name="pref_hk_1_title">Select app for key F7</string>
+    <string name="pref_hk_2">pref_hk_2</string>
+    <string name="pref_hk_2_title">Select app for key F8</string>
+    <string name="pref_hk_3">pref_hk_3</string>
+    <string name="pref_hk_3_title">Select app for key F9</string>
+    <string name="pref_hk_4">pref_hk_4</string>
+    <string name="pref_hk_4_title">Select app for key F10</string>
+    <string name="pref_category_shortcuts">Shortcut settings</string>
+
+
+    <string name="shortcut_app_not_set">No application set</string>
+
+    <string name="shortcut_app_set">Application: <xliff:g id="app_name">%1$s</xliff:g></string>
+</resources>
