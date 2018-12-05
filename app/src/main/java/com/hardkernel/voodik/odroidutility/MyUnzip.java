@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.org.apache.commons.codec.digest.DigestUtils;
 import android.os.AsyncTask;
 import android.provider.OpenableColumns;
 import android.util.Log;
@@ -18,7 +19,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.MessageDigest;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
 public class MyUnzip extends AsyncTask<Void, Integer, Long> {
@@ -75,17 +75,18 @@ public class MyUnzip extends AsyncTask<Void, Integer, Long> {
 
 
             InputStream inputStream = context.getContentResolver().openInputStream(_zipFile);
-            BufferedInputStream fis = new BufferedInputStream(inputStream);
+//            BufferedInputStream fis = new BufferedInputStream(inputStream);
             MessageDigest md5Digest = MessageDigest.getInstance("MD5");
 
             System.out.println("MD5 " + mdsum);
             myProgressDialog.setMessage("Please Wait... Checking MD5 checksum");
-            System.out.println("MD5 " + getFileChecksum(md5Digest, fis, filesize));
-            fis.close();
+            String md5 = DigestUtils.md5Hex(inputStream);
+            System.out.println("MD5 " + md5.toUpperCase());
+//            fis.close();
             inputStream.close();
 
             inputStream = context.getContentResolver().openInputStream(_zipFile);
-            fis = new BufferedInputStream(inputStream);
+            BufferedInputStream fis = new BufferedInputStream(inputStream);
 
 
             //buffer for read and write data to file
@@ -145,42 +146,12 @@ public class MyUnzip extends AsyncTask<Void, Integer, Long> {
         myProgressDialog.setProgress(progress[0]); //Since it's an inner class, Bar should be able to be called directly
     }
 
-    private String getFileChecksum(MessageDigest digest, BufferedInputStream bis, Long filesize) throws IOException
+    private String getFileChecksum(MessageDigest digest, InputStream is, Long filesize) throws IOException
     {
 
-        //Create byte array to read data in chunks
-        byte[] byteArray = new byte[1024];
-        int bytesCount = 0;
-        long totalcount = 0;
-
-        //Read file data and update in message digest
-
-        while ((bytesCount = bis.read(byteArray)) > 0) {
-            totalcount ++;
-            publishProgress((int)((totalcount *1024 * 100) / filesize));
-            digest.update(byteArray, 0, bytesCount);
-        }
-/*        while ((bytesCount = fis.read(byteArray)) != -1) {
-            publishProgress((int)((totalcount *1024 * 100) / filesize));
-            totalcount ++;
-            digest.update(byteArray, 0, bytesCount);
-        };*/
-        System.out.println("bytesCount " + totalcount);
-
-
-        //Get the hash's bytes
-        byte[] bytes = digest.digest();
-
-        //This bytes[] has bytes in decimal format;
-        //Convert it to hexadecimal format
-        StringBuilder sb = new StringBuilder();
-        for(int i=0; i< bytes.length ;i++)
-        {
-            sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-        }
-
+        String md5 = DigestUtils.md5Hex(is);
         //return complete hash
-        return sb.toString().toUpperCase();
+        return md5.toUpperCase();
     }
 
     private Long getfilesizefromuri(Uri uri){

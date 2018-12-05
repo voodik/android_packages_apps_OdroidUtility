@@ -12,7 +12,7 @@ final class Constants {
     final static String TAG = "MNG";
 
     /** boot.ini path */
-    final static String PATH_BOOTINI = "/storage/emulated/0/boot.ini";
+    final static String PATH_BOOTINI = "/storage/0000-3333/boot.ini";
 
     /** bootcmd */
     final static String BOOTCMD = "setenv bootcmd \"movi read kernel 0 40008000;bootz 40008000\"";
@@ -20,12 +20,12 @@ final class Constants {
     final static String UPZIPFILE = "file://" + Environment.getExternalStorageDirectory() + "/update.zip";
     final static String UPSUMFILE = "file://" + Environment.getExternalStorageDirectory() + "/update.zip.md5sum";
 
-    final static String GOVERNOR_NODE = "/storage/emulated/0/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
-    final static String SCALING_AVAILABLE_GOVERNORS = "/storage/emulated/0/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors";
-    final static String DRAM_SCALING_AVAILABLE_GOVERNORS = "/storage/emulated/0/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/available_governors";
-    final static String DRAM_SCALING_AVAILABLE_FREQUENCY = "/storage/emulated/0/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/available_frequencies";
-    final static String DRAM_GOVERNOR_NODE = "/storage/emulated/0/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/governor";
-    final static String DRAM_FREQUENCY_NODE = "/storage/emulated/0/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/max_freq";
+    final static String GOVERNOR_NODE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
+    final static String SCALING_AVAILABLE_GOVERNORS = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors";
+    final static String DRAM_SCALING_AVAILABLE_GOVERNORS = "/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/available_governors";
+    final static String DRAM_SCALING_AVAILABLE_FREQUENCY = "/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/available_frequencies";
+    final static String DRAM_GOVERNOR_NODE = "/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/governor";
+    final static String DRAM_FREQUENCY_NODE = "/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/max_freq";
 
 
     final static Map<String, String> DEFMAP = new TreeMap<String, String>(){{

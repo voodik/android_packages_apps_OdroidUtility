@@ -4,24 +4,18 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import static android.content.Context.CLIPBOARD_SERVICE;
 
 public class AboutFragment extends Fragment {
 
@@ -53,7 +47,7 @@ public class AboutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                ClipData clip = android.content.ClipData.newPlainText("Copied Text", gsfid);
+                ClipData clip = ClipData.newPlainText("Copied Text", gsfid);
                 clipboard.setPrimaryClip(clip);
                 Snackbar.make(v, "Text copied to Clipboard", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();

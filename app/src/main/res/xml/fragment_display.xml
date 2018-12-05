@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <PreferenceCategory android:title="@string/pref_category_display">
@@ -17,29 +17,29 @@
             android:key="@string/pref_rotation"
             android:summary="%s"
             android:title="@string/pref_rotation_title" />
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:key="@string/pref_edid"
             android:summary="Enable HDMI EDID"
             android:title="EDID" />
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:key="@string/pref_hpd"
             android:summary="Enable HDMI HPD"
             android:title="HPD" />
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:key="@string/pref_dp"
             android:summary="Disable DisplayPort"
             android:title="DP" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_category_touch">
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:key="@string/pref_vu7"
             android:summary="Disable VU7 driver"
             android:title="VU7" />
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:key="@string/pref_touch_invert_x"
             android:summary="Invert touch X axis"
             android:title="Invert X" />
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:key="@string/pref_touch_invert_y"
             android:summary="Invert touch Y axis"
             android:title="Invert Y" />
@@ -62,4 +62,4 @@
             android:inputType="textCapCharacters"
             android:defaultValue="0000" />
     </PreferenceCategory>
-</PreferenceScreen>
+</android.support.v7.preference.PreferenceScreen>

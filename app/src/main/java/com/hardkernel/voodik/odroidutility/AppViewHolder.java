@@ -26,10 +26,10 @@ public class AppViewHolder {
             // we want to bind data to.
             AppViewHolder holder = new AppViewHolder();
             holder.rootView = convertView;
-            holder.appName = (TextView) convertView.findViewById(android.R.id.title);
-            holder.appIcon = (ImageView) convertView.findViewById(android.R.id.icon);
-            holder.summary = (TextView) convertView.findViewById(R.id.widget_text1);
-            holder.disabled = (TextView) convertView.findViewById(R.id.widget_text2);
+            holder.appName = convertView.findViewById(android.R.id.title);
+            holder.appIcon = convertView.findViewById(android.R.id.icon);
+            holder.summary = convertView.findViewById(R.id.widget_text1);
+            holder.disabled = convertView.findViewById(R.id.widget_text2);
             convertView.setTag(holder);
             return holder;
         } else {
