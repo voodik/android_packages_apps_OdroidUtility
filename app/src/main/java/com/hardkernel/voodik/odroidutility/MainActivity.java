@@ -26,9 +26,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 
-import java.util.ArrayList;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
-//import com.google.firebase.analytics.FirebaseAnalytics;
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
 
     FloatingActionButton fab;
     public BootIniHelper mBh;
-//    private FirebaseAnalytics mFirebaseAnalytics;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +44,12 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         // Obtain the FirebaseAnalytics instance.
-//        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-//        Bundle bundle = new Bundle();
-//        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "1");
-//        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "mainacct");
-//        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "text");
-//        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "1");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "mainacct");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "text");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
