@@ -17,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.ref.WeakReference;
 import java.security.MessageDigest;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -24,15 +25,15 @@ import java.util.zip.ZipInputStream;
 public class MyUnzip extends AsyncTask<Void, Integer, Long> {
 
     private static final String TAG = Constants.TAG;
-    private Context context;
+    private WeakReference<Context> mWeakContext;
     private Uri _zipFile;
     private Uri _md5sumFile;
     private String _location;
     private ProgressDialog myProgressDialog;
 
-    public MyUnzip(Context c, Uri zipFilePath, Uri md5sumFilePath, String destDir){
+    MyUnzip(WeakReference<Context> c, Uri zipFilePath, Uri md5sumFilePath, String destDir) {
         super();
-        this.context = c;
+        this.mWeakContext = c;
         this._zipFile = zipFilePath;
         this._md5sumFile = md5sumFilePath;
         this._location = destDir;
@@ -41,7 +42,7 @@ public class MyUnzip extends AsyncTask<Void, Integer, Long> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        myProgressDialog = new ProgressDialog(context);
+        myProgressDialog = new ProgressDialog(mWeakContext.get());
         myProgressDialog.setMessage("Please Wait... Unzipping");
         myProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         myProgressDialog.setCancelable(false);
@@ -54,6 +55,7 @@ public class MyUnzip extends AsyncTask<Void, Integer, Long> {
         long filesize = 0;
         File dir = new File(_location);
         long extractedSize = 0;
+        final Context ctx = mWeakContext.get();
 
         // create output directory if it doesn't exist
 
@@ -62,9 +64,9 @@ public class MyUnzip extends AsyncTask<Void, Integer, Long> {
         if (!dir.exists()) dir.mkdirs();
         try {
 
-            filesize = getfilesizefromuri(_zipFile);
+            filesize = getfilesizefromuri(_zipFile, ctx);
             System.out.println("getfilesizefromuri " + filesize);
-            InputStream mdinputStream = context.getContentResolver().openInputStream(_md5sumFile);
+            InputStream mdinputStream = ctx.getContentResolver().openInputStream(_md5sumFile);
             BufferedReader reader = new BufferedReader(new InputStreamReader(mdinputStream));
             String mdline = reader.readLine();
             mdline = mdline.trim();
@@ -74,7 +76,7 @@ public class MyUnzip extends AsyncTask<Void, Integer, Long> {
             mdinputStream.close();
 
 
-            InputStream inputStream = context.getContentResolver().openInputStream(_zipFile);
+            InputStream inputStream = ctx.getContentResolver().openInputStream(_zipFile);
 //            BufferedInputStream fis = new BufferedInputStream(inputStream);
             MessageDigest md5Digest = MessageDigest.getInstance("MD5");
 
@@ -85,7 +87,7 @@ public class MyUnzip extends AsyncTask<Void, Integer, Long> {
 //            fis.close();
             inputStream.close();
 
-            inputStream = context.getContentResolver().openInputStream(_zipFile);
+            inputStream = ctx.getContentResolver().openInputStream(_zipFile);
             BufferedInputStream fis = new BufferedInputStream(inputStream);
 
 
@@ -154,12 +156,12 @@ public class MyUnzip extends AsyncTask<Void, Integer, Long> {
         return md5.toUpperCase();
     }
 
-    private Long getfilesizefromuri(Uri uri){
+    private Long getfilesizefromuri(Uri uri, Context c) {
         long filesize = 0;
         String url = uri.toString();
         if (url.contains("content://")){
             Cursor returnCursor =
-                    context.getContentResolver().query(uri, null, null, null, null);
+                    c.getContentResolver().query(uri, null, null, null, null);
 
             returnCursor.moveToFirst();
             filesize = returnCursor.getLong(returnCursor.getColumnIndex(OpenableColumns.SIZE));

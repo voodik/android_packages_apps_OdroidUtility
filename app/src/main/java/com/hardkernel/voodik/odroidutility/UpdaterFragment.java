@@ -34,6 +34,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class UpdaterFragment extends Fragment {
@@ -41,8 +42,10 @@ public class UpdaterFragment extends Fragment {
     private static String mzipFile;
     private static String mmdsumFile;
     private static ObjectAnimator anim1;
-    private static LinearLayout LLops;
-    private static Context context = null;
+    //    private static Context context = null;
+    private static WeakReference<Context> cReference;
+    private LinearLayout LLops;
+
 
     private static String mUnzipLocation = Environment.getExternalStorageDirectory() + "/";
 
@@ -60,20 +63,12 @@ public class UpdaterFragment extends Fragment {
         return frag;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        context = getActivity();
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_updater, container, false);
-    }
-
     private static void unzip() {
 
         Log.v("MNG Utility", "mzipFile " + mzipFile);
         Log.v("MNG Utility", "mmdsumFile " + mmdsumFile);
 
-        new MyUnzip(context, Uri.parse(mzipFile), Uri.parse(mmdsumFile), mUnzipLocation) {
+        new MyUnzip(cReference, Uri.parse(mzipFile), Uri.parse(mmdsumFile), mUnzipLocation) {
 
             @Override
             protected void onPostExecute(Long result) {
@@ -81,10 +76,19 @@ public class UpdaterFragment extends Fragment {
                 super.onPostExecute(result);
                 // Do something with result here
                 anim1.start();
-                ((MainActivity) context).animatefab();
+                ((MainActivity) cReference.get()).animatefab();
             }
         }.execute();
 
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+//        context = getActivity();
+        cReference = new WeakReference<Context>(getActivity());
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_updater, container, false);
     }
 
     @Override
@@ -122,7 +126,7 @@ public class UpdaterFragment extends Fragment {
         anim1.setRepeatCount(ValueAnimator.INFINITE);
 //tmp
         anim1.start();
-        ((MainActivity)context).animatefab();
+        ((MainActivity) cReference.get()).animatefab();
 
         if (FileUris.isEmpty()){
             Log.v("MNG Utility", "isEmpty ");
@@ -285,7 +289,7 @@ public class UpdaterFragment extends Fragment {
         return  returnCursor.getString(returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
     }
 
-    static void stopanim(){
+    void stopanim() {
         if (anim1.isStarted()){
             anim1.cancel();
             LLops.setBackgroundColor(Color.TRANSPARENT);
