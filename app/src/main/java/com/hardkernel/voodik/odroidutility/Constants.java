@@ -11,14 +11,15 @@ final class Constants {
     /** Log TAG */
     final static String TAG = "MNG";
 
+    final static String BT_PROP = "persist.disable_bluetooth";
+
     /** boot.ini path */
     final static String PATH_BOOTINI = "/storage/0000-3333/boot.ini";
 
     /** bootcmd */
     final static String BOOTCMD = "setenv bootcmd \"movi read kernel 0 40008000;bootz 40008000\"";
-
-    final static String UPZIPFILE = "file://" + Environment.getExternalStorageDirectory() + "/update.zip";
-    final static String UPSUMFILE = "file://" + Environment.getExternalStorageDirectory() + "/update.zip.md5sum";
+    final static String GPS_PROP = "persist.disable_location";
+    final static String BT_SINK_PROP = "persist.service.bt.a2dp.sink";
 
     final static String GOVERNOR_NODE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
     final static String SCALING_AVAILABLE_GOVERNORS = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors";
@@ -26,6 +27,15 @@ final class Constants {
     final static String DRAM_SCALING_AVAILABLE_FREQUENCY = "/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/available_frequencies";
     final static String DRAM_GOVERNOR_NODE = "/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/governor";
     final static String DRAM_FREQUENCY_NODE = "/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/max_freq";
+    final static String SHUT_PROP = "persist.pwbtn.shutdown";
+    final static String FORCE_HDMI_AUDIO_PROP = "persist.hdmi.audioforce";
+    final static String FORCE_HDMI_INPUT_PROP = "persist.hdmi.switch_tv_input";
+    final static String ADB_OVER_NET_PROP = "persist.adb.tcp.port";
+    final static String WLAN_NO_PS_PROP = "persist.no_wlan_ps";
+    final static String FBTFT_PROP = "persist.enable_fbtft";
+    private final static String EXTDIR = Environment.getExternalStorageDirectory().toString();
+    final static String UPZIPFILE = "file://" + EXTDIR + "/update.zip";
+    final static String UPSUMFILE = "file://" + EXTDIR + "/update.zip.md5sum";
 
 
     final static Map<String, String> DEFMAP = new TreeMap<String, String>(){{
