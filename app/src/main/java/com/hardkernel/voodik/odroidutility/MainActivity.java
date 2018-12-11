@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_shortcuts) {
             fragment = ShortcutsFragment.newInstance();
         } else if (id == R.id.nav_misc) {
-
+            fragment = MiscFragment.newInstance();
         } else if (id == R.id.nav_update) {
             fragment = UpdaterFragment.newInstance(new ArrayList<Uri>());
         } else if (id == R.id.nav_bootini) {

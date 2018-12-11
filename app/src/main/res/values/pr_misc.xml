@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_category_misc">Miscellaneous Settings</string>
+    <string name="pref_enable_bluetooth">pref_enable_bluetooth</string>
+    <string name="pref_enable_bluetooth_title">Enable Bluetooth</string>
+    <string name="pref_enable_bluetooth_sink">pref_enable_bluetooth_sink</string>
+    <string name="pref_enable_bluetooth_sink_title">Enable Bluetooth Sink profile</string>
+    <string name="pref_enable_gps">pref_enable_gps</string>
+    <string name="pref_enable_gps_title">Enable GPS</string>
+    <string name="pref_force_shutdown_without_dialog">pref_force_shutdown_without_dialog</string>
+    <string name="pref_force_shutdown_without_dialog_title">Force shutdown without dialog</string>
+    <string name="pref_force_hdmi_audio_output">pref_force_hdmi_audio_output</string>
+    <string name="pref_force_hdmi_audio_output_title">Force HDMI audio output</string>
+    <string name="pref_hdmi_cec_switch_tv_input_after_bootup">pref_hdmi_cec_switch_tv_input_after_bootup</string>
+    <string name="pref_hdmi_cec_switch_tv_input_after_bootup_title">HDMI-CEC Switch TV input after bootup</string>
+    <string name="pref_enable_adb_over_network_at_boot">pref_enable_adb_over_network_at_boot</string>
+    <string name="pref_enable_adb_over_network_at_boot_title">Enable ADB ower network at boot</string>
+    <string name="pref_disable_wlan_ps">pref_disable_wlan_ps</string>
+    <string name="pref_disable_wlan_ps_title">Disable WiFi Power Saving</string>
+    <string name="pref_enable_fbtft">pref_enable_fbtft</string>
+    <string name="pref_enable_fbtft_title">Enable FBTFT Module</string>
+</resources>
