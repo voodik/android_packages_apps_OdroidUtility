@@ -19,6 +19,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v7-appcompat \
     android-support-v7-preference \
     android-support-v7-recyclerview \
+    android-support-v14-preference \
     android-support-design
 	
 LOCAL_STATIC_JAVA_AAR_LIBRARIES  := \
@@ -44,11 +45,13 @@ LOCAL_RESOURCE_DIR := \
     frameworks/support/v7/appcompat/res \
     frameworks/support/v7/recyclerview/res \
     frameworks/support/v7/preference/res \
+    frameworks/support/v14/preference/res \
     frameworks/support/design/res
 
 LOCAL_AAPT_FLAGS := --auto-add-overlay	  
 LOCAL_AAPT_FLAGS += --extra-packages android.support.v7.appcompat
 LOCAL_AAPT_FLAGS += --extra-packages android.support.v7.preference
+LOCAL_AAPT_FLAGS += --extra-packages android.support.v14.preference
 LOCAL_AAPT_FLAGS += --extra-packages android.support.v7.recyclerview
 LOCAL_AAPT_FLAGS += --extra-packages android.support.design
 LOCAL_AAPT_FLAGS += --extra-packages android.support.v4
