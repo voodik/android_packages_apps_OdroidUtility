@@ -1,8 +1,9 @@
 package com.hardkernel.voodik.odroidutility;
 
 import android.content.Context;
-import android.support.v7.preference.EditTextPreference;
 import android.util.AttributeSet;
+
+import androidx.preference.EditTextPreference;
 
 public class CustomEditTextPreference extends EditTextPreference {
     public CustomEditTextPreference(Context context, AttributeSet attrs, int defStyleAttr,

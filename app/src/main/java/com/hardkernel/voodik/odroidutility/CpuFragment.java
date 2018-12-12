@@ -2,9 +2,6 @@ package com.hardkernel.voodik.odroidutility;
 
 
 import android.os.Bundle;
-import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -12,6 +9,10 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 
 public class CpuFragment extends PreferenceFragmentCompat {
 
@@ -97,6 +98,7 @@ public class CpuFragment extends PreferenceFragmentCompat {
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+            value = "none";
         }
         return value;
     }

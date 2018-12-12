@@ -2,7 +2,6 @@ package com.hardkernel.voodik.odroidutility;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -16,9 +15,11 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
+import androidx.preference.PreferenceManager;
+
 import static java.lang.System.lineSeparator;
 
-public class BootIniHelper {
+class BootIniHelper {
     private static final String TAG = Constants.TAG + " BootIniHelper";
     private Context context;
     private String bootinipath;
@@ -174,7 +175,7 @@ public class BootIniHelper {
         mMap.put(key, value);
     }
 
-    public String get(String key) {
+    String get(String key) {
         return (mMap.get(key) != null)? mMap.get(key):Constants.DEFMAP.get(key);
     }
 

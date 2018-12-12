@@ -1,10 +1,7 @@
 package com.hardkernel.voodik.odroidutility;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +10,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 public class BootIniFragment extends Fragment {
 
     public static BootIniFragment newInstance() {
@@ -20,7 +20,7 @@ public class BootIniFragment extends Fragment {
     }
 
     protected static final String TAG = Constants.TAG;
-    private Activity mActivity;
+
     public MainActivity mAcct;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -57,8 +57,5 @@ public class BootIniFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof Activity){
-            mActivity=(Activity) context;
-        }
     }
 }

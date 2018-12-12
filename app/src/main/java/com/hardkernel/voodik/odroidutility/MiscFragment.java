@@ -3,10 +3,11 @@ package com.hardkernel.voodik.odroidutility;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemProperties;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
-import android.support.v7.preference.SwitchPreferenceCompat;
 import android.util.Log;
+
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreferenceCompat;
 
 public class MiscFragment extends PreferenceFragmentCompat {
 

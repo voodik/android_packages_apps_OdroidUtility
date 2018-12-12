@@ -3,16 +3,17 @@ package com.hardkernel.voodik.odroidutility;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.preference.EditTextPreferenceDialogFragmentCompat;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.annotation.VisibleForTesting;
+import androidx.fragment.app.DialogFragment;
+import androidx.preference.EditTextPreferenceDialogFragmentCompat;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 
 
 public class DisplayFragment extends PreferenceFragmentCompat {
@@ -105,7 +106,7 @@ public class DisplayFragment extends PreferenceFragmentCompat {
 
                 Boolean value = (Boolean) newValue;
                 mAcct.mBh.set("hpd", value ? "1" : "0");
-                Log.v(TAG, "onPreferenceChange: pref_edid " + newValue);
+                Log.v(TAG, "onPreferenceChange: pref_hpd " + newValue);
                 return true;
             }
         });
