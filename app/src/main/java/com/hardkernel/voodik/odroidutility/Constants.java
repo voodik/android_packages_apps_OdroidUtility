@@ -11,25 +11,27 @@ final class Constants {
     /** Log TAG */
     final static String TAG = "MNG";
 
-    final static String BT_PROP = "persist.disable_bluetooth";
-
     /** boot.ini path */
     final static String PATH_BOOTINI = "/storage/0000-3333/boot.ini";
 
     /** bootcmd */
     final static String BOOTCMD = "setenv bootcmd \"movi read kernel 0 40008000;bootz 40008000\"";
-    final static String GPS_PROP = "persist.disable_location";
-    final static String BT_SINK_PROP = "persist.service.bt.a2dp.sink";
 
+    /** sysfs nodes */
     final static String GOVERNOR_NODE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
     final static String SCALING_AVAILABLE_GOVERNORS = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors";
     final static String DRAM_SCALING_AVAILABLE_GOVERNORS = "/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/available_governors";
     final static String DRAM_SCALING_AVAILABLE_FREQUENCY = "/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/available_frequencies";
     final static String DRAM_GOVERNOR_NODE = "/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/governor";
     final static String DRAM_FREQUENCY_NODE = "/sys/devices/platform/exynos5-devfreq-mif/devfreq/exynos5-devfreq-mif/max_freq";
-    final static String SHUT_PROP = "persist.pwbtn.shutdown";
+
+    /** misc properties */
+    final static String BT_PROP = "persist.disable_bluetooth";
+    final static String BT_SINK_PROP = "persist.service.bt.a2dp.sink";
+    final static String GPS_PROP = "persist.disable_location";
     final static String FORCE_HDMI_AUDIO_PROP = "persist.hdmi.audioforce";
     final static String FORCE_HDMI_INPUT_PROP = "persist.hdmi.switch_tv_input";
+    final static String SHUT_PROP = "persist.pwbtn.shutdown";
     final static String ADB_OVER_NET_PROP = "persist.adb.tcp.port";
     final static String WLAN_NO_PS_PROP = "persist.no_wlan_ps";
     final static String FBTFT_PROP = "persist.enable_fbtft";
@@ -37,7 +39,13 @@ final class Constants {
     final static String UPZIPFILE = "file://" + EXTDIR + "/update.zip";
     final static String UPSUMFILE = "file://" + EXTDIR + "/update.zip.md5sum";
 
+    /** ethernet constants */
+    final static int DHCP = 0;
+    final static int STATIC_IP = 1;
+    final static int NOPROXY = 0;
+    final static int MANPROXY = 1;
 
+    /** default boot.ini settings */
     final static Map<String, String> DEFMAP = new TreeMap<String, String>(){{
         put("hdmi_phy_res", "720p60hz");
         put("fb_x_res", "1280");
@@ -54,6 +62,7 @@ final class Constants {
         put("test_mt_pid", "0000");
     }};
 
+    /** resolutions map */
     final static Map<String, int[]> RES_DEFMAP = new HashMap<String, int[]>() {{
         put("480x320p60hz", new int[]{480, 320});
         put("480p60hz", new int[]{640, 480});
