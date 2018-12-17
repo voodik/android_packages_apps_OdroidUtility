@@ -7,6 +7,8 @@ import android.net.IpConfiguration.IpAssignment;
 import android.net.IpConfiguration.ProxySettings;
 import android.net.LinkAddress;
 import android.net.NetworkUtils;
+import android.net.Proxy;
+import android.net.ProxyInfo;
 import android.net.StaticIpConfiguration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -28,8 +31,8 @@ import java.util.Iterator;
 public class EthFragment extends Fragment {
 
     protected static final String TAG = Constants.TAG;
-    private Spinner mSpinnerEthernet;
-    private Spinner mSpinnerProxy;
+    private Spinner mIpSettingsSpinner;
+    private Spinner mProxySettingsSpinner;
     private LinearLayout mstaticip;
     private LinearLayout mProxy;
     private EditText mEditTextEthIpaddress;
@@ -37,9 +40,13 @@ public class EthFragment extends Fragment {
     private EditText mEditTextEthPrefix;
     private EditText mEditTextEthDns1;
     private EditText mEditTextEthDns2;
+    private TextView mProxyHostView;
+    private TextView mProxyPortView;
+    private TextView mProxyExclusionListView;
 
     private IpAssignment mIpAssignment = IpAssignment.UNASSIGNED;
     private ProxySettings mProxySettings = ProxySettings.UNASSIGNED;
+    private ProxyInfo mHttpProxy = null;
     private StaticIpConfiguration mStaticIpConfiguration = null;
     private EthernetManager mEthernetManager;
 
@@ -57,8 +64,8 @@ public class EthFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
 
-        mSpinnerEthernet = (Spinner) view.findViewById(R.id.ip_settings);
-        mSpinnerProxy = (Spinner) view.findViewById(R.id.proxy_settings);
+        mIpSettingsSpinner = (Spinner) view.findViewById(R.id.ip_settings);
+        mProxySettingsSpinner = (Spinner) view.findViewById(R.id.proxy_settings);
         mstaticip = (LinearLayout) view.findViewById(R.id.staticip);
         mProxy = (LinearLayout) view.findViewById(R.id.proxy_fields);
         mEditTextEthIpaddress = (EditText) view.findViewById(R.id.ipaddress);
@@ -67,16 +74,21 @@ public class EthFragment extends Fragment {
         mEditTextEthDns1 = (EditText) view.findViewById(R.id.dns1);
         mEditTextEthDns2 = (EditText) view.findViewById(R.id.dns2);
 
+        mProxyHostView = (TextView) view.findViewById(R.id.proxy_hostname);
+        mProxyPortView = (TextView) view.findViewById(R.id.proxy_port);
+        mProxyExclusionListView = (TextView) view.findViewById(R.id.proxy_exclusionlist);
+
+
         mEthernetManager = (EthernetManager) getActivity().getSystemService(Context.ETHERNET_SERVICE);
         if (mEthernetManager != null) {
             Log.e(TAG, "Connected to EthernetManager");
         } else {
-            Log.e(TAG, "Shaytan !!!");
+            Log.e(TAG, "Unable connect to EthernetManager");
         }
 
         IpConfiguration config = mEthernetManager.getConfiguration();
         if (config.getIpAssignment() == IpAssignment.STATIC) {
-            mSpinnerEthernet.setSelection(Constants.STATIC_IP);
+            mIpSettingsSpinner.setSelection(Constants.STATIC_IP);
             StaticIpConfiguration staticConfig = config.getStaticIpConfiguration();
 
             if (staticConfig.ipAddress != null) {
@@ -100,13 +112,23 @@ public class EthFragment extends Fragment {
 
 
         } else {
-            mSpinnerEthernet.setSelection(Constants.DHCP);
+            mIpSettingsSpinner.setSelection(Constants.DHCP);
         }
 
-        mSpinnerEthernet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        if (config != null) {
+            ProxyInfo proxyProperties = config.getHttpProxy();
+            if (proxyProperties != null) {
+                mProxyHostView.setText(proxyProperties.getHost());
+                mProxyPortView.setText(Integer.toString(proxyProperties.getPort()));
+                mProxyExclusionListView.setText(proxyProperties.getExclusionListAsString());
+                mProxySettingsSpinner.setSelection(Constants.PROXY_STATIC);
+            }
+        }
+
+        mIpSettingsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if (mSpinnerEthernet.getSelectedItemPosition() == Constants.STATIC_IP) {
+                if (mIpSettingsSpinner.getSelectedItemPosition() == Constants.STATIC_IP) {
                     mstaticip.setVisibility(LinearLayout.VISIBLE);
                 } else {
                     mstaticip.setVisibility(LinearLayout.GONE);
@@ -120,10 +142,10 @@ public class EthFragment extends Fragment {
 
         });
 
-        mSpinnerProxy.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mProxySettingsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if (mSpinnerProxy.getSelectedItemPosition() == Constants.MANPROXY) {
+                if (mProxySettingsSpinner.getSelectedItemPosition() == Constants.PROXY_STATIC) {
                     mProxy.setVisibility(LinearLayout.VISIBLE);
                 } else {
                     mProxy.setVisibility(LinearLayout.GONE);
@@ -144,7 +166,7 @@ public class EthFragment extends Fragment {
                 if (ipAndProxyFieldsAreValid()) {
                     mEthernetManager.setConfiguration(
                             new IpConfiguration(mIpAssignment, mProxySettings,
-                                    mStaticIpConfiguration, null));
+                                    mStaticIpConfiguration, mHttpProxy));
                 }
             }
         });
@@ -152,8 +174,8 @@ public class EthFragment extends Fragment {
 
 
     private boolean ipAndProxyFieldsAreValid() {
-        mIpAssignment = (mSpinnerEthernet != null &&
-                mSpinnerEthernet.getSelectedItemPosition() == Constants.STATIC_IP) ?
+        mIpAssignment = (mIpSettingsSpinner != null &&
+                mIpSettingsSpinner.getSelectedItemPosition() == Constants.STATIC_IP) ?
                 IpAssignment.STATIC : IpAssignment.DHCP;
 
         if (mIpAssignment == IpAssignment.STATIC) {
@@ -164,6 +186,28 @@ public class EthFragment extends Fragment {
             }
         }
 
+        final int selectedPosition = mProxySettingsSpinner.getSelectedItemPosition();
+        mProxySettings = ProxySettings.NONE;
+        mHttpProxy = null;
+        if (selectedPosition == Constants.PROXY_STATIC && mProxyHostView != null) {
+            mProxySettings = ProxySettings.STATIC;
+            String host = mProxyHostView.getText().toString();
+            String portStr = mProxyPortView.getText().toString();
+            String exclusionList = mProxyExclusionListView.getText().toString();
+            int port = 0;
+            int result = 0;
+            try {
+                port = Integer.parseInt(portStr);
+                result = validate(host, portStr, exclusionList);
+            } catch (NumberFormatException e) {
+                result = R.string.proxy_error_invalid_port;
+            }
+            if (result == 0) {
+                mHttpProxy = new ProxyInfo(host, port, exclusionList);
+            } else {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -240,5 +284,30 @@ public class EthFragment extends Fragment {
             staticIpConfiguration.dnsServers.add(dnsAddr);
         }
         return 0;
+    }
+
+    /**
+     * validate syntax of hostname and port entries
+     * @return 0 on success, string resource ID on failure
+     */
+    public static int validate(String hostname, String port, String exclList) {
+        switch (Proxy.validate(hostname, port, exclList)) {
+            case Proxy.PROXY_VALID:
+                return 0;
+            case Proxy.PROXY_HOSTNAME_EMPTY:
+                return R.string.proxy_error_empty_host_set_port;
+            case Proxy.PROXY_HOSTNAME_INVALID:
+                return R.string.proxy_error_invalid_host;
+            case Proxy.PROXY_PORT_EMPTY:
+                return R.string.proxy_error_empty_port;
+            case Proxy.PROXY_PORT_INVALID:
+                return R.string.proxy_error_invalid_port;
+            case Proxy.PROXY_EXCLLIST_INVALID:
+                return R.string.proxy_error_invalid_exclusion_list;
+            default:
+                // should neven happen
+                Log.e(TAG, "Unknown proxy settings error");
+                return -1;
+        }
     }
 }

@@ -43,7 +43,7 @@ final class Constants {
     final static int DHCP = 0;
     final static int STATIC_IP = 1;
     final static int NOPROXY = 0;
-    final static int MANPROXY = 1;
+    final static int PROXY_STATIC = 1;
 
     /** default boot.ini settings */
     final static Map<String, String> DEFMAP = new TreeMap<String, String>(){{
