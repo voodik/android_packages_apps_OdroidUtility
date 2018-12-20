@@ -94,7 +94,9 @@ public class MainActivity extends AppCompatActivity
                 super.onDrawerClosed(drawerView);
                 InputMethodManager inputMethodManager = (InputMethodManager)
                         getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                if (inputMethodManager != null) {
+                    inputMethodManager.hideSoftInputFromWindow(fab.getWindowToken(), 0);
+                }
             }
 
             @Override
@@ -103,7 +105,9 @@ public class MainActivity extends AppCompatActivity
                 super.onDrawerOpened(drawerView);
                 InputMethodManager inputMethodManager = (InputMethodManager)
                         getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                if (inputMethodManager != null) {
+                    inputMethodManager.hideSoftInputFromWindow(fab.getWindowToken(), 0);
+                }
             }
         };
 
@@ -198,7 +202,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_ethernet) {
             fragment = EthFragment.newInstance();
         } else if (id == R.id.nav_fan) {
-
+            fragment = FanFragment.newInstance();
         } else if (id == R.id.nav_shortcuts) {
             fragment = ShortcutsFragment.newInstance();
         } else if (id == R.id.nav_misc) {

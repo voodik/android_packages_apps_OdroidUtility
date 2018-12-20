@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_category_fan">
+        <SwitchPreferenceCompat android:key="@string/pref_fan_1"
+            android:title="@string/pref_fan_1_title" />
+        <Preference android:key="@string/pref_fan_2"
+            android:title="@string/pref_fan_2_title" />
+        <Preference android:key="@string/pref_fan_3"
+            android:title="@string/pref_fan_3_title" />
+        <SwitchPreferenceCompat android:key="@string/pref_fan_4"
+            android:title="@string/pref_fan_4_title" />
+        <Preference android:key="@string/pref_fan_5"
+            android:title="@string/pref_fan_5_title" />
+    </PreferenceCategory>
+</android.support.v7.preference.PreferenceScreen>

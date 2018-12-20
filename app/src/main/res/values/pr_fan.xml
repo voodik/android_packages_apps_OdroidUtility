@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_category_fan">Fan settings</string>
+    <string name="pref_fan_1">pref_fan_1</string>
+    <string name="pref_fan_1_title">Auto fan mode</string>
+    <string name="pref_fan_2">pref_fan_2</string>
+    <string name="pref_fan_2_title">Fan speed</string>
+    <string name="pref_fan_3">pref_fan_3</string>
+    <string name="pref_fan_3_title">PWM duty</string>
+    <string name="pref_fan_4">pref_fan_4</string>
+    <string name="pref_fan_4_title">PWM enable</string>
+    <string name="pref_fan_5">pref_fan_5</string>
+    <string name="pref_fan_5_title">Temperature levels</string>
+</resources>
